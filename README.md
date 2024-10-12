@@ -1,2 +1,2 @@
 # Onekey-Problem-Detector
-A problem detector of Onekey
+A Problem Detector of [Onekey](github.com/ikunshare/Onekey)
