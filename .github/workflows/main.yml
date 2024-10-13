@@ -63,7 +63,7 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         tag_name: v${{ env.PACKAGE_VERSION }}
-        files: build/Onekey---v${{ env.PACKAGE_VERSION }}.exe
+        files: build/OnekeyProblemDetector---v${{ env.PACKAGE_VERSION }}.exe
         prerelease: false
         draft: false
       env:
