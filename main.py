@@ -4,7 +4,7 @@ import hashlib
 import json
 import requests
 from pathlib import Path
-from log import init_log as log
+from log import log
 from get_steam_path import get_steam_path
 
 def check_windows_version():
@@ -33,13 +33,14 @@ def check_config_file_exists():
         log.error("⚠️ 配置文件config.json不存在.")
         return False
 
-def get_md5_from_url(url):
-    response = requests.get(url)
-    if response.status_code == 200:
-        log.info("🔗 成功从URL获取MD5值.")
-        return response.text.strip()
+def get_md5_from_file(file_path):
+    if os.path.exists(file_path):
+        with open(file_path, 'r', encoding='utf-8') as f:
+            md5_value = f.read().strip()
+            log.info("🔗 成功从文件获取MD5值.")
+            return md5_value
     else:
-        log.error(f"❌ 无法从URL获取MD5值,返回状态码: {response.status_code}")
+        log.error(f"❌ 找不到MD5文件: {file_path}")
         return None
 
 def calculate_md5(file_path):
@@ -72,7 +73,8 @@ def check_steam_path(steam_path):
         return False
 
 def main():
-    input("🚀 请先在https://github.com/ikunshare/Onekey/releases下载最新版Onekey并启动一次后再测试,按任意键继续...\n")
+    log.warning("注意:由于Onekey的更新频率较高,测试前请先在https://github.com/ikunshare/Onekey/releases下载最新版Onekey并启动一次后再测试,按任意键继续...\n")
+    input()
     
     if not check_windows_version():
         return
@@ -103,12 +105,13 @@ def main():
                 log.error("🚫 不存在SteamTools插件,请检查安装情况.")
                 return
 
-    onekey_md5 = get_md5_from_url("https://raw.gitmirror.com/muwenyan521/Onekey-Problem-Detector/refs/heads/main/md5.md5")
+    onekey_md5 = get_md5_from_file("md5.md5")
     if onekey_md5:
         if calculate_md5(onekey_file) == onekey_md5:
             log.info("🎉 Onekey文件校验通过.")
         else:
             log.error("❌ Onekey文件校验失败,请检查下载是否完整.")
-
+    log.info("测试完成,你的Onekey不存在环境问题,按任意键退出...")
+    input()
 if __name__ == "__main__":
     main()
