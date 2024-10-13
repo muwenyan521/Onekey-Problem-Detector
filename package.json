@@ -1,6 +1,6 @@
 {
     "name": "onekey-problem-detector",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Onekey的环境检查工具",
     "main": "index.js",
     "scripts": {
