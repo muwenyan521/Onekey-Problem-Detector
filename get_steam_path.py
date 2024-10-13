@@ -1,6 +1,6 @@
 import winreg
 from pathlib import Path
-from .stack_error import stack_error
+from stack_error import stack_error
 
 def get_steam_path() -> Path:
     try:
