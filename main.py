@@ -2,7 +2,6 @@ import os
 import platform
 import hashlib
 import json
-import requests
 from pathlib import Path
 from log import log
 from get_steam_path import get_steam_path
