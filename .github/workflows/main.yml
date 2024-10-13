@@ -30,9 +30,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install imageio
         pip install -r requirements.txt
-    - name: Copy md5.md5 file
-      run: |
-        cp md5.md5 ./md5.md5
     - name: Build
       uses: Nuitka/Nuitka-Action@main
       with:
