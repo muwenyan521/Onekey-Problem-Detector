@@ -39,7 +39,7 @@ def get_md5_from_file(file_path):
             log.info("🔗 成功从文件获取MD5值.")
             return md5_value
     else:
-        log.error(f"❌ 找不到MD5文件: {file_path}")
+        log.error(f"❌ 找不到MD5文件: {file_path},请从https://github.com/muwenyan521/Onekey-Problem-Detector/blob/main/md5.md5处下载并放在当前目录下.")
         return None
 
 def calculate_md5(file_path):

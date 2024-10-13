@@ -3,14 +3,14 @@ import colorlog
 
 LOG_FORMAT = '%(log_color)s[%(name)s][%(levelname)s]%(message)s'
 LOG_COLORS = {
-    'INFO': 'cyan',
+    'INFO': 'green',
     'WARNING': 'yellow',
     'ERROR': 'red',
     'CRITICAL': 'purple',
 }
 
 def init_log(level=logging.DEBUG) -> logging.Logger:
-    logger = logging.getLogger('Onekey')
+    logger = logging.getLogger('OnekeyProblemDetector')
     logger.setLevel(level)
 
     stream_handler = logging.StreamHandler()
