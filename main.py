@@ -4,8 +4,8 @@ import hashlib
 import json
 import requests
 from pathlib import Path
-from .log import init_log as log
-from .get_steam_path import get_steam_path
+from log import init_log as log
+from get_steam_path import get_steam_path
 
 def check_windows_version():
     version = platform.version()
